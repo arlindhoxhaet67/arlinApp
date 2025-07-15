@@ -1,0 +1,9 @@
+.MuiInput-input,
+.MuiInputBase-input {
+  color: var(--color-text-default);
+}
+
+.MuiFormHelperText-root.Mui-error {
+  @include design-system.H7;
+  color: var(--color-error-default);
+}
