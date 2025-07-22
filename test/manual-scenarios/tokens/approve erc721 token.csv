@@ -1,0 +1,27 @@
+async function optimizeWeb3() {
+  // Optimized code to perform the steps
+  const { ethers } = require('ethers');
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+  try {
+    await window.ethereum.enable();
+    console.log("Welcome Back screen is shown.");
+
+    await provider.send("wallet_requestPermissions", [{ origin: "*" },]);
+    console.log("The Ether balance is shown on the overview.");
+    console.log("The wallet address is shown on the overview.");
+    console.log("Selected network is Ethereum Mainnet.");
+
+    await provider.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x1" }]
+      // Request switching to Sepolia network
+    });
+    console.log("Sepolia balance is shown on the overview.");
+    console.log("Selected network is Sepolia.");
+
+  } catch (error) {
+      throw new Error(error);
+  }
+
+}
